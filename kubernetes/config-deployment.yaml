@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: google-cloud-key
         secret:
-         secretName: googlsheet-key
+         secretName: googlesheet-key

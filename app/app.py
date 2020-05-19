@@ -4,6 +4,7 @@ import json
 import os
 
 from flask import Flask, jsonify
+from werkzeug.exceptions import HTTPException, NotFound
 import google.auth
 
 app = Flask(__name__)
@@ -79,9 +80,14 @@ def get_record(**kwargs):
 
 @app.errorhandler(Exception)
 def handle_exception(error):
-    message = [str(x) for x in error.args]
-    status_code = error.args[0].get('code')
     success = False
+    if isinstance(error, NotFound):
+        status_code = 404
+        message = 'NOT FOUND'
+    else:
+        status_code = error.args[0].get('code')
+        message = error.args[0].get('message')
+
     response = {
         'success': success,
         'error': {
