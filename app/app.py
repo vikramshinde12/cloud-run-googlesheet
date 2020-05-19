@@ -80,8 +80,7 @@ def get_record(**kwargs):
 @app.errorhandler(Exception)
 def handle_exception(error):
     message = [str(x) for x in error.args]
-    print(message)
-    status_code = 404
+    status_code = error.args[0].get('code')
     success = False
     response = {
         'success': success,
