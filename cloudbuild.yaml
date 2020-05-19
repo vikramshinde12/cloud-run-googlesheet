@@ -7,7 +7,7 @@ steps:
   args:
     - 'run'
     - 'deploy'
-    - 'config-service'
+    - 'config-service-csr'
     - '--region=europe-west1'
     - '--platform=managed'
     - '--allow-unauthenticated'

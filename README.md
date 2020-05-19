@@ -25,7 +25,7 @@ kubectl create secret generic googlesheet-key --from-file=key.json=PATH-TO-KEY-F
 kubectl create -f kubernetes/.
 ```  
 
-
 ##Cloud Run
+
 
 The cloudbuild.yaml file will trigger the cloudrun.
